@@ -52,7 +52,6 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ObjectRepo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainForm.resx">
@@ -81,9 +80,21 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\JSONData\JSONData.csproj">
+      <Project>{306FD343-8219-411C-B9FE-D6AC1BB6EA2D}</Project>
+      <Name>JSONData</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MockData\MockData.csproj">
       <Project>{882191ad-5193-4b87-adf5-b148d78b3bb9}</Project>
       <Name>MockData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Stream\Stream.csproj">
+      <Project>{079210a9-ba06-49f4-a03b-337f1b31ff2b}</Project>
+      <Name>Stream</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XMLData\XMLData.csproj">
+      <Project>{fa57443b-2cb5-49cc-ba8e-d5f8ab666fdf}</Project>
+      <Name>XMLData</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

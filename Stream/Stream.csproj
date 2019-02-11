@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{882191AD-5193-4B87-ADF5-B148D78B3BB9}</ProjectGuid>
+    <ProjectGuid>{079210A9-BA06-49F4-A03B-337F1B31FF2B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MockData</RootNamespace>
-    <AssemblyName>MockData</AssemblyName>
+    <RootNamespace>Stream</RootNamespace>
+    <AssemblyName>Stream</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,11 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IObjectRepo.cs" />
-    <Compile Include="ObjectRepo.cs" />
-    <Compile Include="People.cs" />
-    <Compile Include="Person.cs" />
+    <Compile Include="StreamRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MockData\MockData.csproj">
+      <Project>{882191ad-5193-4b87-adf5-b148d78b3bb9}</Project>
+      <Name>MockData</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

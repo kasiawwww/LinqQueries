@@ -5,15 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LinqQueries
+namespace MockData
 {
-    public class ObjectRepo
+    public class ObjectRepo : IObjectRepo
     {
         /// <summary>
         /// Id is auto-incremented
         /// </summary>
         /// <param name="person"></param>
-        public void Add(Person person)
+        public int Add(Person person)
         {
             var last = (from p in People.PeopleList
                       select p).LastOrDefault();
@@ -26,7 +26,42 @@ namespace LinqQueries
                 person.Id = 1;            
             }
             People.PeopleList.Add(person);
+            return person.Id;
         }
+
+        public bool Delete(int id)
+        {
+            var item = GetPerson(id);
+            if (item != null)
+            {
+                People.PeopleList.Remove(item);
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public bool Update(Person person)
+        {
+            if (person == null)
+            {
+                return false;
+            }
+            var item = GetPerson(person.Id);
+            if (item != null)
+            {
+                item = person;
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public List<Person> GetList()
+        {
+            return People.PeopleList;
+        }
+
         public Person GetFirstPerson()
         {
             var query = from p in People.PeopleList

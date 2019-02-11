@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace MockData
 {
+    [Serializable]
     public class Person
     {
         public int Id { get; set; }

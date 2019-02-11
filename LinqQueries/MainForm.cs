@@ -1,4 +1,6 @@
-﻿using MockData;
+﻿using JSONData;
+using MockData;
+using Stream;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,14 +10,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using XMLData;
 
 namespace LinqQueries
 {
     public partial class MainForm : Form
     {
+        IObjectRepo repo;
         public MainForm()
         {
             InitializeComponent();
+            repo = new StreamRepo();
+            //repo = new JSONRepo();
+            //repo = new XMLRepo();
+            //repo = new ObjectRepo();
         }
 
         private void getResults_Click(object sender, EventArgs e)
@@ -23,12 +31,13 @@ namespace LinqQueries
            // ObjectRepo repo = new ObjectRepo();
            // repo.Add(new Person {Id=100, Name = "Hanna", LastName = "Lis", BirthDate = new DateTime (1970,5,30), Height = 175, Weight = 65 });
             dgv.DataSource = null;
-            dgv.DataSource = People.PeopleList.OrderByDescending(a=>a.Id).ToList();
+            dgv.DataSource = repo.GetList();
+            //dgv.DataSource = People.PeopleList.OrderByDescending(a=>a.Id).ToList();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            ObjectRepo repo = new ObjectRepo();
+            
             //Person person = new Person();
             //person.Name = tbName.Text;
             //person.LastName = tbLastname.Text;
