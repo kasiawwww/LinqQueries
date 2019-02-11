@@ -9,6 +9,10 @@ namespace LinqQueries
 {
     public class ObjectRepo
     {
+        /// <summary>
+        /// Id is auto-incremented
+        /// </summary>
+        /// <param name="person"></param>
         public void Add(Person person)
         {
             var last = (from p in People.PeopleList
